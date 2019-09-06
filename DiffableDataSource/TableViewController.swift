@@ -48,6 +48,12 @@ extension TableViewController {
         snapshot.appendItems(beers, toSection: .main)
         tableDataSource.apply(snapshot, animatingDifferences: animated)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let beer = tableDataSource.itemIdentifier(for: indexPath) {
+            print("selected beer \(beer)")
+        }
+    }
 }
 
 //MARK: - UISearchResultsUpdating
